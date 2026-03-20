@@ -3,137 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Soluciones profesionales para tu empresa. Calidad y confianza.">
-    <title>PYG Solutions | Innovación y Soluciones</title>
+    <title>GYP Solutions | Tecnología e Inovación</title>
     
-    <!-- Google Fonts para tipografía profesional -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* --- Reset y Variables Globales --- */
         :root {
-            --primary: #2563eb; /* Azul corporativo */
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --text: #334155;
+            --primary-color: #a32a4a; /* El color guinda/vino del logo y botón */
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --font-main: 'Inter', sans-serif;
+            --header-height: 100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-shadow: border-box;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
+            font-family: var(--font-main);
+            color: var(--text-dark);
             line-height: 1.6;
-            color: var(--text);
-            background-color: var(--light);
         }
 
-        /* Navegación Semántica */
-        header {
-            background: white;
-            padding: 1rem 5%;
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- Barra Superior (Top Bar) --- */
+        .top-bar {
+            background-color: #f4f4f4;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .top-bar-contact { display: flex; gap: 15px; align-items: center; }
+        .top-bar-social a { font-size: 1.1rem; }
+        .top-bar-social a:hover { color: var(--primary-color); }
+
+        /* --- Header y Navegación --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.95); /* Ligeramente transparente */
+            padding: 0 5%;
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; /* Se queda fijo al hacer scroll */
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
-        
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
+        .logo img {
+            height: 70px; /* Ajusta según tu logo real */
+            width: auto;
         }
 
-        /* Hero Section (La primera impresión) */
-        .hero {
-            padding: 100px 5%;
-            text-align: center;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: white;
-        }
-
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        
-        .cta-button {
-            background: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-            transition: transform 0.2s;
-        }
-
-        .cta-button:hover { transform: scale(1.05); }
-
-        /* Grid de Servicios */
-        .services {
-            padding: 80px 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .nav-links {
+            display: flex;
             gap: 30px;
+            align-items: center;
         }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
+        .nav-links a {
+            font-weight: 500;
+            font-size: 1.1rem;
         }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: var(--dark);
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        /* Botón "Cotiza ya!" */
+        .btn-cotiza {
+            background-color: var(--primary-color);
             color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
         }
 
+        .btn-cotiza:hover {
+            background-color: #8c243f; /* Un tono más oscuro */
+            transform: translateY(-2px);
+        }
+
+        /* --- Hero Section (Pantalla Principal) --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - var(--header-height)); /* Ocupa el resto de la pantalla */
+            
+            /* IMAGEN DE FONDO - Reemplaza 'ruta/a/tu/imagen.jpg' */
+            background-image: url('https://images.unsplash.com/photo-1541976844346-f18aeac57b06?q=80&w=1920&auto=format&fit=crop'); 
+            
+            background-size: cover; /* La imagen cubre todo el espacio */
+            background-position: center; /* Centrada */
+            background-repeat: no-repeat;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        /* Superposición oscura para legibilidad del texto */
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 50% de oscuridad */
+            z-index: 1;
+        }
+
+        /* Contenido del Hero */
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Por encima de la superposición */
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-title span {
+            color: var(--primary-color); /* El color guinda en el nombre */
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Botón de WhatsApp flotante (abajo a la derecha) */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1001;
+        }
+
+        /* --- Responsividad Básica --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-description { font-size: 1.1rem; }
+            .nav-links { display: none; } /* Ocultar menú en móvil para simplificar ahora */
+            .top-bar { flex-direction: column; gap: 10px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
+    <div class="top-bar">
+        <div class="top-bar-contact">
+            <span>📞 3227973066</span>
+        </div>
+        <div class="top-bar-social">
+            <a href="#" target="_blank">Instagram</a> </div>
+    </div>
+
     <header>
-        <div class="logo">PYG Solutions</div>
+        <div class="logo">
+            <img src="https://via.placeholder.com/150x70?text=LOGO+BG" alt="BG Proyectos Logo">
+        </div>
         <nav>
-            <a href="#servicios">Servicios</a>
-            <a href="#contacto">Contacto</a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#" class="btn-cotiza">Cotiza ya!</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <h1>Impulsa tu negocio al siguiente nive</h1>
-            <p>Creamos soluciones tecnológicas confiables y de alto impacto para tu empresa.</p>
-            <a href="#contacto" class="cta-button">Empezar ahora</a>
-        </section>
-
-        <section id="servicios" class="services">
-            <article class="card">
-                <h3>🚀 Consultoría Digital</h3>
-                <p>Analizamos tu flujo de trabajo para optimizar cada proceso técnico.</p>
-            </article>
-            <article class="card">
-                <h3>💻 Desarrollo Web</h3>
-                <p>Páginas rápidas, seguras y optimizadas para buscadores (SEO).</p>
-            </article>
-            <article class="card">
-                <h3>📊 Estrategia de Datos</h3>
-                <p>Toma decisiones basadas en información real de tus clientes.</p>
-            </article>
+            <div class="hero-overlay"></div> <div class="hero-content">
+                <p class="hero-subtitle">NOS APASIONA EL DETALLE</p>
+                <h1 class="hero-title">BG <span>Proyectos</span></h1>
+                <p class="hero-description">
+                    Nos especializamos en la planificación, diseño y construcción de proyectos.
+                </p>
+                <p class="hero-description">
+                    Nos enfocamos en transformar en realidad tus sueños e ideas...
+                </p>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 EmpresaCo. Todos los derechos reservados.</p>
-    </footer>
+    <a href="https://wa.me/3227973066" class="whatsapp-float" target="_blank">
+        W </a>
 
 </body>
 </html>
