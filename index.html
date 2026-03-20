@@ -3,226 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GYP Solutions | Tecnología e Inovación</title>
+    <title>PYG Solutions | Construcción, Tecnología e Innovación</title>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- Reset y Variables Globales --- */
         :root {
-            --primary-color: #a32a4a; /* El color guinda/vino del logo y botón */
+            /* --- MODIFICACIÓN: Paleta de Colores --- */
+            /* He adaptado los colores basados en el azul y cian de tu nuevo logo */
+            --primary-color: #0d47a1; /* Azul profundo principal (de 'PYG') */
+            --primary-hover: #1565c0; /* Un azul ligeramente más claro para hovers */
+            --accent-color: #00bcd4;  /* Cian brillante (del elemento de circuito) */
+            
             --text-light: #ffffff;
-            --text-dark: #333333;
+            --text-dark: #1a1a1a;
+            --gray-bg: #f8f9fa;
             --font-main: 'Inter', sans-serif;
-            --header-height: 100px;
+            --header-height: 90px;
+            --transition: all 0.3s ease;
         }
 
+        /* Reset Profesional */
         * {
             margin: 0;
             padding: 0;
-            box-shadow: border-box;
+            box-sizing: border-box; /* Corregido: era box-sizing, no box-shadow */
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: var(--font-main);
             color: var(--text-dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
+        /* --- Utilidades --- */
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
 
-        /* --- Barra Superior (Top Bar) --- */
+        /* --- Top Bar --- */
         .top-bar {
-            background-color: #f4f4f4;
-            padding: 10px 5%;
+            background-color: var(--gray-bg);
+            padding: 8px 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #ddd;
+        }
+        .top-bar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.9rem;
-            color: #666;
         }
 
-        .top-bar-contact { display: flex; gap: 15px; align-items: center; }
-        .top-bar-social a { font-size: 1.1rem; }
-        .top-bar-social a:hover { color: var(--primary-color); }
-
-        /* --- Header y Navegación --- */
+        /* --- Header --- */
         header {
-            background-color: rgba(255, 255, 255, 0.95); /* Ligeramente transparente */
-            padding: 0 5%;
+            background-color: rgba(255, 255, 255, 0.98);
             height: var(--header-height);
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            position: sticky; /* Se queda fijo al hacer scroll */
+            position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
-        .logo img {
-            height: 75px; /* Ajusta según tu logo real */
-            width: auto;
-        }
-
-        .nav-links {
+        header .container {
             display: flex;
-            gap: 30px;
+            justify-content: space-between;
             align-items: center;
         }
 
+        /* --- MODIFICACIÓN: Contenedor del Logo --- */
+        .logo img {
+            height: 60px; /* Ajuste profesional para el tamaño del nuevo logo */
+            width: auto;
+            display: block;
+        }
+
+        .nav-links { display: flex; gap: 32px; align-items: center; list-style: none; }
         .nav-links a {
             font-weight: 500;
-            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-size: 1rem;
+            text-decoration: none;
+        }
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--primary-color); 
+            font-weight: 600; /* Un pequeño realce para el hover */
         }
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--primary-color);
-        }
-
-        /* Botón "Cotiza ya!" */
+        /* --- MODIFICACIÓN: Estilo del Botón 'Cotiza ya!' --- */
         .btn-cotiza {
             background-color: var(--primary-color);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-weight: 600;
+            color: white !important;
         }
-
         .btn-cotiza:hover {
-            background-color: #8c243f; /* Un tono más oscuro */
+            background-color: var(--accent-color); /* Usamos el color de acento para el hover */
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3); /* Sombra con el color de acento */
         }
 
-        /* --- Hero Section (Pantalla Principal) --- */
+        /* --- Hero Section --- */
         .hero {
             position: relative;
-            width: 100%;
-            height: calc(100vh - var(--header-height)); /* Ocupa el resto de la pantalla */
-            
-            /* IMAGEN DE FONDO - Reemplaza 'ruta/a/tu/imagen.jpg' */
-            background-image: url('https://images.unsplash.com/photo-1541976844346-f18aeac57b06?q=80&w=1920&auto=format&fit=crop'); 
-            
-            background-size: cover; /* La imagen cubre todo el espacio */
-            background-position: center; /* Centrada */
-            background-repeat: no-repeat;
-            
+            height: calc(100vh - var(--header-height));
+            min-height: 500px;
+            /* La imagen de fondo sigue siendo la misma, pero puedes cambiarla por una más tecnológica si lo deseas */
+            background: url('https://images.unsplash.com/photo-1541976844346-f18aeac57b06?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
             display: flex;
-            justify-content: center;
             align-items: center;
-            text-align: center;
             color: var(--text-light);
         }
 
-        /* Superposición oscura para legibilidad del texto */
-        .hero-overlay {
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* 50% de oscuridad */
+            /* El gradiente oscuro para la legibilidad del texto */
+            background: linear-gradient(45deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
             z-index: 1;
         }
 
-        /* Contenido del Hero */
         .hero-content {
             position: relative;
-            z-index: 2; /* Por encima de la superposición */
+            z-index: 2;
             max-width: 800px;
-            padding: 0 20px;
         }
 
+        /* --- MODIFICACIÓN: Subtítulo del Hero --- */
         .hero-subtitle {
+            color: var(--accent-color); /* Usamos el cian para que resalte más */
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            font-weight: 600;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
         }
 
         .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
         }
 
-        .hero-title span {
-            color: var(--primary-color); /* El color guinda en el nombre */
+        /* --- MODIFICACIÓN: Resaltado en el título (SOLUTIONS) --- */
+        .hero-title strong {
+            color: var(--accent-color); /* Resaltamos 'SOLUTIONS' con el cian */
+            font-weight: 800;
         }
 
         .hero-description {
-            font-size: 1.3rem;
-            font-weight: 400;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
 
-        /* Botón de WhatsApp flotante (abajo a la derecha) */
+        /* WhatsApp Button */
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             background-color: #25d366;
             color: white;
             width: 60px; height: 60px;
             border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
             font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             z-index: 1001;
+            transition: var(--transition);
         }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
-        /* --- Responsividad Básica --- */
+        /* Móvil */
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .hero-description { font-size: 1.1rem; }
-            .nav-links { display: none; } /* Ocultar menú en móvil para simplificar ahora */
-            .top-bar { flex-direction: column; gap: 10px; text-align: center; }
+            .nav-links { display: none; } /* Deberías implementar un menú hamburguesa aquí */
+            .top-bar { display: none; }
+            .hero { text-align: center; }
+            /* Ajustamos el tamaño del logo en móviles */
+            .logo img { height: 50px; }
         }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        <div class="top-bar-contact">
-            <span>📞 960507585</span>
+        <div class="container">
+            <div>📞 +51 960 507 585 | 📧 contacto@pygsolutions.com</div>
+            <div><a href="#">Instagram</a></div>
         </div>
-        <div class="top-bar-social">
-            <a href="#" target="_blank">Instagram</a> </div>
     </div>
 
     <header>
-        <div class="logo">
-            <img src="https://github.com/gersonwg/pygsolutions/blob/main/pyg-solution-logo.jpeg?raw=true" alt="PYG Solutions Logo">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="https://github.com/gersonwg/pygsolutions/blob/main/pyg-solution-logo.jpeg?raw=true" alt="PYG SOLUTIONS - Transformando ideas">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#" class="btn btn-cotiza">Cotiza ya!</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#" class="active">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#" class="btn-cotiza">Cotiza ya!</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-overlay"></div> <div class="hero-content">
-                <p class="hero-subtitle">Rendimiento que impulsa resultados</p>
-                <h1 class="hero-title">PYG <span>SOLUTIONS</span></h1>
-                <p class="hero-description">
-                    Nos especializamos en la planificación, diseño y construcción de proyectos.
-                </p>
-                <p class="hero-description">
-                    Nos enfocamos en transformar en realidad tus sueños e ideas...
-                </p>
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-subtitle">Ingeniería y Construcción</span>
+                    <h1 class="hero-title">PYG <strong>SOLUTIONS</strong></h1>
+                    <p class="hero-description">
+                        Transformamos ideas en infraestructuras sólidas. Especialistas en diseño, planificación y ejecución de proyectos de alto impacto.
+                    </p>
+                    <a href="#contacto" class="btn btn-cotiza">Empezar mi proyecto</a>
+                </div>
             </div>
         </section>
     </main>
 
-    <a href="https://wa.me/51960507585" class="whatsapp-float" target="_blank">
-        W </a>
+    <a href="https://wa.me/51960507585" class="whatsapp-float" target="_blank" aria-label="Chat en WhatsApp">
+        <span>W</span> 
+    </a>
 
 </body>
 </html>
