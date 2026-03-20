@@ -169,7 +169,7 @@
             opacity: 0.9;
         }
 
-        /* WhatsApp Button */
+        /* --- MODIFICACIÓN: Estilo del Botón de WhatsApp con el Nuevo Ícono --- */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -179,19 +179,27 @@
             width: 60px; height: 60px;
             border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
-            font-size: 30px;
+            /* box-shadow y z-index se mantienen igual */
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             z-index: 1001;
             transition: var(--transition);
         }
+
+        /* Nuevo estilo para el ícono en sí */
+        .whatsapp-float img {
+            width: 34px; /* Tamaño del ícono dentro del círculo */
+            height: 34px;
+            /* MODIFICACIÓN: Convertir el ícono en blanco para mantener la estética elegante del sitio */
+            filter: brightness(0) invert(1);
+        }
+
         .whatsapp-float:hover { transform: scale(1.1); }
 
         /* Móvil */
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* Deberías implementar un menú hamburguesa aquí */
+            .nav-links { display: none; } 
             .top-bar { display: none; }
             .hero { text-align: center; }
-            /* Ajustamos el tamaño del logo en móviles */
             .logo img { height: 50px; }
         }
     </style>
